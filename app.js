@@ -16,11 +16,12 @@ async function fetchProducts() {
   // Add each product to the list
   products.forEach(product => {
     const li = document.createElement('li');
-    li.innerHTML = `${product.name} - $${product.price}`;
+    li.innerHTML = `${product.name} - $${product.price} - ${product.description}`;
 
     // Add delete button for each product
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = 'Delete';
+    deleteButton.style.backgroundColor = "red";
     deleteButton.addEventListener('click', async () => {
       await deleteProduct(product.id);
       await fetchProducts();
@@ -47,19 +48,20 @@ addProductForm.addEventListener('submit', async event => {
   event.preventDefault();
   const name = addProductForm.elements['name'].value;
   const price = addProductForm.elements['price'].value;
-  await addProduct(name, price);
+  const description = addProductForm.elements['description'].value;
+  await addProduct(name, price, description);
   addProductForm.reset();
   await fetchProducts();
 });
 
 // Function to add a new product
-async function addProduct(name, price) {
+async function addProduct(name, price, description) {
   const response = await fetch('http://localhost:3000/products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ name, price })
+    body: JSON.stringify({ name, price, description })
   });
   return response.json();
 }

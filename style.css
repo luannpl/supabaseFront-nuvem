@@ -1,5 +1,10 @@
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslategrey;
   }
   
   h1 {
@@ -13,20 +18,26 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
   }
   
   li {
-    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
     margin: 5px;
     padding: 5px 10px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
+    background-color: #1890f1;
+    border-radius: 10px;
     box-shadow: 2px 2px 2px #ccc;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
   }
   
   button {
-    margin-left: 10px;
-    background-color: #4CAF50;
+    margin-right: 10px;
+    background-color: #465746;
     color: white;
     border: none;
     border-radius: 5px;
@@ -37,6 +48,8 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: end;
   }
   
   button:hover {
@@ -44,12 +57,18 @@ body {
   }
   
   form {
-    margin-top: 20px;
+    margin-right: 50px;
     text-align: center;
-    background-color: #f2f2f2;
+    background-color: #1890f1;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 2px 2px 2px #ccc;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
   }
   
   label {
@@ -95,5 +114,14 @@ body {
   
   input[type="number"] {
     -moz-appearance: textfield;
+  }
+
+
+  #div-main{
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    
   }
   
